@@ -1,0 +1,19 @@
+[user]
+    email = ql@lemonzi.me
+    name = Quim Llimona
+[push]
+    default = simple
+[alias]
+    stat = status -sb
+    dif = diff --word-diff=color
+    undo = reset --soft HEAD^
+    amend = commit --amend -C HEAD
+    co = checkout
+    ci = commit -m
+    l = log --pretty=oneline -n 20 --graph --abbrev-commit
+[credential]
+    helper = osxkeychain
+[core]
+    excludesfile = ~/.gitignore
+[help]
+	autocorrect = 1
