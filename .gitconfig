@@ -11,8 +11,8 @@
     co = checkout
     ci = commit -m
     l = log --pretty=oneline -n 20 --graph --abbrev-commit
-[credential]
-    helper = osxkeychain
+# [credential]
+#    helper = osxkeychain
 [core]
     excludesfile = ~/.gitignore
 [help]
