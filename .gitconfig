@@ -1,8 +1,6 @@
 [user]
     email = ql@lemonzi.me
     name = Quim Llimona
-[push]
-    default = simple
 [alias]
     stat = status -sb
     dif = diff --word-diff=color
@@ -10,7 +8,9 @@
     amend = commit --amend -C HEAD
     co = checkout
     ci = commit -m
+    ca = commit -ma
     l = log --pretty=oneline -n 20 --graph --abbrev-commit
+    pp = pull --rebase && push
 # [credential]
 #    helper = osxkeychain
 [core]
