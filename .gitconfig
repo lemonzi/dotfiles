@@ -2,14 +2,15 @@
     email = ql@lemonzi.me
     name = Quim Llimona
 [alias]
+    st = status -sb
     stat = status -sb
     dif = diff --word-diff=color
     undo = reset --soft HEAD^
     amend = commit --amend -C HEAD
     co = checkout
     ci = commit -m
-    ca = commit -ma
-    l = log --pretty=oneline -n 20 --graph --abbrev-commit
+    ca = commit -am
+    l = log -n 20 --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     pp = pull --rebase && push
 # [credential]
 #    helper = osxkeychain
