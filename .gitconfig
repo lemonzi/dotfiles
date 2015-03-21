@@ -25,3 +25,5 @@
     changed = blue
     untracked = magenta
     deleted = red
+[hub]
+    protocol = https
