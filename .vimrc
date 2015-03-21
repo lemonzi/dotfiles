@@ -76,12 +76,15 @@ let g:airline#extensions#tabline#enabled = 1
 
 " VimGrep configuration
 if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
+    let g:ackprg = 'ag --vimgrep'
 endif
 
 " NERDTree configuration
-autocmd VimEnter * NERDTree
-autocmd VimEnter * wincmd p
+if (&columns > 100)
+    autocmd VimEnter * NERDTree
+    autocmd VimEnter * wincmd p
+endif
+
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " key bindings
