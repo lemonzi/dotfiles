@@ -16,6 +16,8 @@
 #    helper = osxkeychain
 [core]
     excludesfile = ~/.gitignore
+[push]
+    default = simple
 [help]
     autocorrect = 1
 [color]
