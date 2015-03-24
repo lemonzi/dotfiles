@@ -7,7 +7,7 @@ set show-all-if-ambiguous on
 set show-all-if-unmodified on
 
 # Immediately add a trailing slash when autocompleting symlinks to directories
-set mark-symlinked-directories on
+# set mark-symlinked-directories on
 
 # Use the text that has already been typed as the prefix for searching through
 # commands (i.e. more intelligent Up/Down behavior)
@@ -44,3 +44,7 @@ set convert-meta off
 
 # Disable beeps
 set bell-style none
+
+# Cycle through auto-complete suggestions instead of displaying a list
+"\e[Z": menu-complete
+

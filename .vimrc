@@ -30,6 +30,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'ciaranm/detectindent'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'bling/vim-airline'
+Plugin 'scrooloose/syntastic'
 
 call vundle#end()            " required
 
@@ -73,6 +74,7 @@ set softtabstop=4
 
 " Airline configuration
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
 
 " VimGrep configuration
 if executable('ag')
