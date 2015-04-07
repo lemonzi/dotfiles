@@ -33,9 +33,9 @@ shopt -s globstar
 
 # PS1='${debian_chroot:+($debian_chroot)}\[\033[37m\]\u@\h:\[\033[0m\]\W$(__git_ps1 " (%s)") > '
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ] || [ -n "$SSH_CONNECTION" ]; then
-    PS1='\[\033[90m\]\u@\h:\[\033[0m\]\W$(__git_ps1 " (%s)") > '
+    PS1='\[\033[90m\]\u@\h:\[\033[0m\]\W\[\033[90m\]$(__git_ps1 " (%s)")\[\033[0m\] > '
 else
-    PS1='\[\033[90m\]local:\[\033[0m\]\W$(__git_ps1 " (%s)") > '
+    PS1='\[\033[90m\]local:\[\033[0m\]\W\[\033[90m\]$(__git_ps1 " (%s)")\[\033[0m\] > '
 fi
 
 # If this is an xterm set the title to user@host:dir
@@ -66,7 +66,10 @@ alias l='ls -CF'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+
+# Other aliases
 function kg() { kill `jobs -p "$@"` ;}
+alias matlab='matlab -nodesktop -nosplash -nodisplay'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -92,9 +95,10 @@ fi
 shopt -s cdspell
 
 # Enable git autocompletion
-# if [ -f  ~/.bash_config/git-completion.bash ]; then
-#     source ~/.bash_config/git-completion.bash
-# fi
+if [ -f  ~/.bash_config/git-completion.bash ]; then
+    source ~/.bash_config/git-completion.bash
+fi
 
 # OSX
 # alias ql="qlmanage -p > /dev/null 2>&1"
+
