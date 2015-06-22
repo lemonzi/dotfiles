@@ -19,6 +19,11 @@ pushd ~/.vim/bundle/YouCompleteMe
 ./install.py --clang-completer --tern-completer
 popd
 
+# Homebrew
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew tap homebrew/bundle
+brew bundle
+
 # PIP
 pip install -r pip.txt
 
