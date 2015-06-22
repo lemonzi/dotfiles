@@ -64,6 +64,11 @@ if [ ! -d ~/.tmux/plugins/tpm ]; then
 fi
 ~/.tmux/plugins/tpm/bin/install_plugins
 
+# Homebrew
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew tap homebrew/bundle
+brew bundle
+
 # PIP
 if command_exists pip; then
     pip install -r ./pip.txt
