@@ -29,6 +29,8 @@ brew 'the_silver_searcher'
 brew 'thefuck'
 brew 'vim'
 brew 'z'
+brew 'peco'
+brew 'jq'
 brew 'caskroom/cask/brew-cask'
 brew 'homebrew/dupes/gdb'
 brew 'homebrew/dupes/grep', args: ['with-default-names']
