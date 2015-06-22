@@ -15,3 +15,13 @@ git clone https://github.com/lemonzi/dotfiles ~/.dotfiles
 cd ~./.dotfiles
 ./install.sh
 ````
+
+TODO
+----
+
+Hopefully all these will get done during my next full reset, scheduled for August 
+as Yosemite seems stable enough already.
+
+* Add Sublime Text configuration (or get rid of it and just use vim)
+* Add custom OSX configuration (`.osx`)
+
