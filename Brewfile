@@ -13,6 +13,7 @@ brew 'openssl'
 brew 'python'
 brew 'git'
 brew 'ffmpeg'
+brew 'fpp'
 brew 'gcc', args: ['without-multilib']
 brew 'heroku-toolbelt'
 brew 'hr'
