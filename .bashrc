@@ -70,6 +70,7 @@ alias ....='cd ../../..'
 # Other aliases
 function kg() { kill `jobs -p "$@"` ;}
 alias matlab='matlab -nodesktop -nosplash -nodisplay'
+alias fuck='eval $(thefuck $(fc -ln -1)); history -r'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
