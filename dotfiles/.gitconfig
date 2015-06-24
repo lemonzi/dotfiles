@@ -6,6 +6,7 @@
     dif = diff --color-words
     sdif = difftool --tool=icdiff
     vdif = difftool --tool=vimdiff
+	sdiff = difftool --tool=icdiff
     undo = reset --soft HEAD^
     amend = commit --amend -C HEAD
     co = checkout
