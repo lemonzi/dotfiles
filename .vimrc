@@ -31,6 +31,11 @@ Plugin 'ciaranm/detectindent'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/syntastic'
+Plugin 'groenewege/vim-less'
+Plugin 'alexdavid/vim-min-git-status'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'xolox/vim-easytags'
 
 call vundle#end()            " required
 
@@ -62,15 +67,18 @@ set hidden
 set ruler
 set number
 set t_Co=256
-set tw=80
+"set tw=80
 set mouse=a
-set backupdir=~/.vim/backup//
+set nobackup
+"set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
 set wildignorecase
-set expandtab
-set shiftwidth=4
-set softtabstop=4
+"set expandtab
+"set shiftwidth=4
+"set softtabstop=4
+"set tabstop=4
+"set shiftwidth=4
 
 " Airline configuration
 let g:airline#extensions#tabline#enabled = 1
@@ -82,12 +90,21 @@ if executable('ag')
 endif
 
 " NERDTree configuration
-if (&columns > 100)
-    autocmd VimEnter * NERDTree
-    autocmd VimEnter * wincmd p
-endif
+" if (&columns > 100)
+"     autocmd VimEnter * NERDTree
+"     autocmd VimEnter * wincmd p
+" endif
 
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+" VimMarkdown configuration
+let g:vim_markdown_math=1
+let g:vim_markdown_frontmatter=1
+
+" Quit when only the NERDTree window is present
+autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" Detect indent automatically
+:autocmd BufReadPost * :DetectIndent 
+:let g:detectindent_preferred_indent = 4
 
 " key bindings
 nnoremap <Leader>kws :%s/\s\+$//<CR>
