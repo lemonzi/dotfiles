@@ -70,7 +70,6 @@ set t_Co=256
 "set tw=80
 set mouse=a
 set nobackup
-"set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
 set wildignorecase
