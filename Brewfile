@@ -1,8 +1,6 @@
 # Brewfile for lemonzi's dotfiles (OSX version only)
 # For now, they are sorted by order
 
-tap 'homebrew/bundle'
-
 brew 'ack'
 brew 'bash'
 brew 'bfg'
@@ -13,7 +11,6 @@ brew 'openssl'
 brew 'python'
 brew 'git'
 brew 'ffmpeg'
-brew 'fpp'
 brew 'gcc', args: ['without-multilib']
 brew 'heroku-toolbelt'
 brew 'hr'
@@ -22,7 +19,6 @@ brew 'icdiff'
 brew 'imagemagick'
 brew 'libsndfile'
 brew 'node'
-brew 'osxfuse'
 brew 'sox'
 brew 'spark'
 brew 'the_silver_searcher'
@@ -35,8 +31,6 @@ brew 'caskroom/cask/brew-cask'
 brew 'homebrew/dupes/gdb'
 brew 'homebrew/dupes/grep', args: ['with-default-names']
 brew 'homebrew/dupes/rsync'
-brew 'homebrew/fuse/simple-mtpfs'
-brew 'homebrew/fuse/sshfs'
 brew 'homebrew/science/perf'
 brew 'homebrew/x11/ddd'
 
@@ -51,13 +45,14 @@ cask 'divvy'
 cask 'dropbox'
 cask 'firefox'
 cask 'google-chrome'
+cask 'google-nik-collection'
+cask 'insync'
 cask 'joinme'
-# cask 'kivy' (never used it)
 cask 'mendeley-desktop'
 cask 'musescore'
 cask 'namechanger'
 cask 'pandoc'
-cask 'pd-extended'
+cask 'pd'
 cask 'sequel-pro'
 cask 'skype'
 cask 'sonic-visualiser'
@@ -65,10 +60,7 @@ cask 'soundflower'
 cask 'the-unarchiver'
 cask 'transmission'
 cask 'vlc'
-
-# I would like to switch to insync eventually
-# Formatting my computer would be a good excuse
-# cask 'google-drive' || 'insync'
+cask 'argon/mas/mas'
 
 # Quicklook plugins
 
@@ -79,3 +71,10 @@ cask 'qlstephen'
 cask 'quicklook-csv'
 cask 'quicklook-json'
 
+# Useful but not installed by default
+
+# cask 'kivy' (python app sdk, never used it)
+# brew 'fpp'
+# cask 'osxfuse'
+# brew 'homebrew/fuse/simple-mtpfs'
+# brew 'homebrew/fuse/sshfs'
