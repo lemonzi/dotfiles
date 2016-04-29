@@ -3,8 +3,9 @@
 ## INSTALL SCRIPT
 
 # Dotfiles
-# cp -r !(.git|install.sh|README.md|pip.txt) ~
-rsync -a --exclude-from="exclude" . ~
+for $f in ./dotfiles/*; do
+    ln -s $f ~/$f
+done
 
 # Vim
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
