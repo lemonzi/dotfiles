@@ -3,25 +3,30 @@
     name = Quim Llimona
 [alias]
     st = status -sb
-    stat = status -sb
     dif = diff --color-words
+    sdif = difftool --tool=icdiff
     vdif = difftool --tool=vimdiff
     undo = reset --soft HEAD^
     amend = commit --amend -C HEAD
     co = checkout
-    ci = commit
-    ca = commit -a
-	aa = add --all
+    c = commit
+    ci = commit -m
+    ca = commit -am
     l = log -n 20 --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     pp = pull --rebase && push
+[credential]
+    helper = cache
 [diff]
-    algorithm = minimal
+    algorithm = histogram
 [difftool]
     prompt = false
+[difftool "icdiff"]
+    cmd = icdiff "$@" | less -R
 [core]
     excludesfile = ~/.gitignore
+    editor = vim
 [push]
-    default = simple
+    default = matching
 [help]
     autocorrect = 1
 [color]

@@ -19,7 +19,7 @@ set match-hidden-files on
 
 # Show all autocomplete results at once
 set page-completions off
-set completion-prefix-disply-length 2
+set completion-prefix-display-length 2
 
 # If there are more than 100 possible completions for a word, ask to show them all
 set completion-query-items 100

@@ -1,0 +1,36 @@
+#!/bin/bash
+
+#
+# Custom aliases for the lemonzi/dotfiles
+# See also: .gitconfig, for clever git aliases
+#
+
+# Usual suspects for ls and cd
+alias ll='ls -ahlF'
+alias la='ls -Ah'
+alias l='ls -F'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+
+# Kill a job with a given ID (by finding its PID)
+alias kg='kill $(jobs -p "$@")'
+
+# Open a terminal session on matlab (requires it to be on the PATH)
+# The dotfiles will try to link it on OSX but it must be already installed by hand
+alias matlab='matlab -nodesktop -nosplash -nodisplay'
+
+# Run thefuck (requires it to be installed, which we do with pip)
+alias fuck='eval $(thefuck $(fc -ln -1)); history -r'
+
+# Restart bluetooth, because the trackpad is so dumb (requires blueutil)
+alias bluetooth_restart='blueutil power 0; blueutil power 1'
+
+# Restart wifi, in case the connection drops
+alias wifi_restart='sudo ifconfig en0 down && sudo ifconfig en0 up'
+
+# Alert script (probably only works on linux)
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# Edit in VIM (that muscle memory...)
+alias :e=vim

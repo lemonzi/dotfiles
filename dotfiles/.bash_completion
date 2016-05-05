@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# This script sources additional bash completion scripts and contains some
+# custom completions for commands not installed.
+
+source ~/.bash_config/npm-completion.bash
+

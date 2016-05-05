@@ -1,113 +1,204 @@
-"
-" VUNDLE
+" VIM configuration file
+" Part of the lemonzi/dotfiles distribution
+
+set nocompatible              " be iMproved
+
+" 
+" VUNDLE PLUGINS
 "
 
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
+filetype off                  " required for plugins to work
 set rtp+=~/.vim/bundle/Vundle.vim
-
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle, required
+" Base
 Plugin 'gmarik/Vundle.vim'
-
-" list of plugins
 Plugin 'tpope/vim-sensible'
-Plugin 'tpope/vim-fugitive'
-Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'terryma/vim-multiple-cursors'
+
+" Color scheme
 Plugin 'nanotech/jellybeans.vim'
-"Plugin 'altercation/vim-colors-solarized'
-Plugin 'Townk/vim-autoclose'
+
+" Git integration
+Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'mileszs/ack.vim'
+Plugin 'alexdavid/vim-min-git-status'
+Plugin 'gregsexton/gitv'
+
+" Prose
+Plugin 'junegunn/goyo.vim'
+Plugin 'junegunn/limelight.vim'
+Plugin 'reedes/vim-pencil'
+Plugin 'reedes/vim-lexical'
+Plugin 'plasticboy/vim-markdown'
+
+" Helpers for weird languages
+Plugin 'tmhedberg/SimpylFold'
+Plugin 'vim-scripts/MatlabFilesEdition'
+Plugin 'djoshea/vim-matlab-fold'
+Plugin 'groenewege/vim-less'
+
+" Tags
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-easytags'
 Plugin 'majutsushi/tagbar'
-Plugin 'ciaranm/detectindent'
+
+" File navigation
+Plugin 'mileszs/ack.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'EinfachToll/DidYouMean'
+
+" Custom text objects
+Plugin 'kana/vim-textobj-user'
+Plugin 'reedes/vim-textobj-sentence'
+Plugin 'glts/vim-textobj-comment'
+Plugin 'kana/vim-textobj-indent'
+Plugin 'thinca/vim-textobj-between'
+Plugin 'gaving/vim-textobj-argument'
+
+" Motions, completions, and syntax checks
+Plugin 'tpope/vim-unimpaired'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'jiangmiao/auto-pairs'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'bling/vim-airline'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-sleuth'
 Plugin 'scrooloose/syntastic'
-Plugin 'groenewege/vim-less'
-Plugin 'alexdavid/vim-min-git-status'
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'xolox/vim-easytags'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'ervandew/supertab'
 
-call vundle#end()            " required
-
-filetype plugin indent on    " required
-
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-
-"
-" CUSTOM
-"
-
+call vundle#end()
+filetype plugin indent on
 filetype plugin on
 
-"set background=dark
-"colorscheme solarized
+"
+" PLUGIN SETTINGS
+"
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 0
+let g:indent_guides_start_level = 2
+let g:syntastic_always_populate_loc_list = 1
+let g:vim_markdown_math = 1
+let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_folding_disabled = 1
+let g:pencil#wrapModeDefault = 'soft'
+let g:limelight_conceal_ctermfg = 241
+let g:tagbar_type_matlab = {
+    \ 'ctagstype' : 'matlab',
+    \ 'kinds' : ['f:functions', 'v:variables']
+\ }
+let g:easytags_async = 1
+let g:easytags_auto_update = 1
+if executable('ag')
+    let g:ackprg = 'ag --vimgrep'
+endif
+let g:SimpylFold_docstring_preview = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+let NERDTreeIgnore=['\.pyc$', '\~$']
+let g:Gitv_DoNotMapCtrlKey = 1
+
+"
+" AUTOCOMMANDS
+"
+
+" Open NERDTree if the terminal is wide enough
+"if (&columns > 100)
+"    autocmd VimEnter * NERDTree
+"    autocmd VimEnter * wincmd p
+"endif
+
+" Close the NERDTree if it's the only remaning window
+autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" Autoload Pencil
+augroup pencil
+    autocmd!
+    autocmd FileType markdown,mkd,text,tex call pencil#init()
+    "autocmd FileType markdown,mkd,text,tex set nocursorline
+    autocmd FileType markdown,mkd,text,tex call textobj#sentence#init()
+augroup END
+
+" 
+" CUSTOM BUILTIN SETTINGS
+"
+
 colorscheme jellybeans
 set cursorline
-set smartcase
+set ignorecase
+set wildignorecase
 set hidden
-set ruler
 set number
 set t_Co=256
-"set tw=80
 set mouse=a
 set nobackup
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
-set wildignorecase
-"set expandtab
-"set shiftwidth=4
-"set softtabstop=4
-"set tabstop=4
-"set shiftwidth=4
+set clipboard=unnamed
+set pastetoggle=<F2>
+set foldmethod=syntax
+set foldlevelstart=5
+set foldnestmax=4
+set colorcolumn=80
+set shiftwidth=4
+set expandtab
+let python_highlight_all = 1
 
-" Airline configuration
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
+"
+" CUSTOM KEY BINDINGS
+"
 
-" VimGrep configuration
-if executable('ag')
-    let g:ackprg = 'ag --vimgrep'
-endif
+" Split navigations
+nnoremap <C-j> <C-w><C-j>
+nnoremap <C-k> <C-w><C-k>
+nnoremap <C-l> <C-w><C-l>
+nnoremap <C-h> <C-w><C-h>
+nnoremap <tab> <C-w>w
+nnoremap <backspace> <C-w>W
 
-" NERDTree configuration
-" if (&columns > 100)
-"     autocmd VimEnter * NERDTree
-"     autocmd VimEnter * wincmd p
-" endif
+" Easier commands
+nnoremap ; :
 
-" VimMarkdown configuration
-let g:vim_markdown_folding_disabled=1
-let g:vim_markdown_math=1
-let g:vim_markdown_frontmatter=1
+" Enable folding with the spacebar
+nnoremap <space> za
 
-" Quit when only the NERDTree window is present
-autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+" Toggle spell checking on and off with \s
+nnoremap <leader>s :setlocal spell! spelllang=en_us<CR>
 
-" Detect indent automatically
-:autocmd BufReadPost * :DetectIndent 
-:let g:detectindent_preferred_indent = 4
+" YouCompleteMe mappings
+nnoremap <leader>d :YcmCompleter GoTo<CR>
+nnoremap <leader>h :YcmCompleter GetDoc<CR>
+"
+" Search current search in all files with \f
+nnoremap <leader>f :AckFromSearch<CR>
 
-" key bindings
-nnoremap <Leader>kws :%s/\s\+$//<CR>
-nnoremap <C-Left> :tabprevious<CR>
-nnoremap <C-Right> :tabnext<CR>
+" Git shortcuts
+nnoremap <leader>gs :Gministatus<CR>
+nnoremap <leader>gc :Gcommit<CR>
+nnoremap <leader>gl :Gitv --all<CR>
+nnoremap <leader>gm :Gblame<CR>
+nnoremap <leader>ga :Gwrite<CR>
+
+" Insert-mode magic
+inoremap ; <End>;
+inoremap ;; ;
+inoremap ;<Space> ;<Space>
+
+" Insert end at the line below (super-handy for MATLAB and similar)
+nnoremap <leader>e oend<ESC>
+
+"
+" CUSTOM ABBREVIATIONS
+"
+
+iab funciton function
+iab funtcion function
+iab edn end
+iab opne open
+iab dont don't
+iab doesnt doesn't
+iab arent aren't
+iab wont won't
+iab isnt isn't
 
