@@ -170,7 +170,7 @@ nnoremap <leader>s :setlocal spell! spelllang=en_us<CR>
 " YouCompleteMe mappings
 nnoremap <leader>d :YcmCompleter GoTo<CR>
 nnoremap <leader>h :YcmCompleter GetDoc<CR>
-"
+
 " Search current search in all files with \f
 nnoremap <leader>f :AckFromSearch<CR>
 
@@ -188,6 +188,9 @@ inoremap ;<Space> ;<Space>
 
 " Insert end at the line below (super-handy for MATLAB and similar)
 nnoremap <leader>e oend<ESC>
+
+" Insert newline after cursor position and move to it
+nnoremap <leader><return> o<ESC>
 
 "
 " CUSTOM ABBREVIATIONS
