@@ -47,6 +47,7 @@ Plugin 'mileszs/ack.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'EinfachToll/DidYouMean'
+Plugin 'tpope/vim-eunuch'
 
 " Custom text objects
 Plugin 'kana/vim-textobj-user'
