@@ -6,7 +6,7 @@ set -eu
 # Requires: vim, clang, tern, pip (python), gem (ruby)
 
 # Dotfiles
-for $f in ./dotfiles/*; do
+for f in ./dotfiles/*; do
     ln -s $f ~/$f
 done
 
