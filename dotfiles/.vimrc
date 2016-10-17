@@ -3,7 +3,7 @@
 
 set nocompatible              " be iMproved
 
-" 
+"
 " VUNDLE PLUGINS
 "
 
@@ -54,8 +54,9 @@ Plugin 'kana/vim-textobj-user'
 Plugin 'reedes/vim-textobj-sentence'
 Plugin 'glts/vim-textobj-comment'
 Plugin 'kana/vim-textobj-indent'
-Plugin 'thinca/vim-textobj-between'
-Plugin 'gaving/vim-textobj-argument'
+" Plugin 'thinca/vim-textobj-between'
+" Plugin 'gaving/vim-textobj-argument'
+Plugin 'wellle/targets.vim'
 
 " Motions, completions, and syntax checks
 Plugin 'tpope/vim-unimpaired'
@@ -68,10 +69,9 @@ Plugin 'tpope/vim-sleuth'
 Plugin 'scrooloose/syntastic'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'ervandew/supertab'
+Plugin 'jeaye/color_coded'
 
 call vundle#end()
-filetype plugin indent on
-filetype plugin on
 
 "
 " PLUGIN SETTINGS
@@ -117,11 +117,11 @@ autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 augroup pencil
     autocmd!
     autocmd FileType markdown,mkd,text,tex call pencil#init()
-    "autocmd FileType markdown,mkd,text,tex set nocursorline
+    autocmd FileType markdown,mkd,text set nocursorline
     autocmd FileType markdown,mkd,text,tex call textobj#sentence#init()
 augroup END
 
-" 
+"
 " CUSTOM BUILTIN SETTINGS
 "
 
@@ -131,7 +131,9 @@ set ignorecase
 set wildignorecase
 set hidden
 set number
+set list  " Display trailing whitespace
 set t_Co=256
+set term=screen-256color
 set mouse=a
 set nobackup
 set directory=~/.vim/swap//
@@ -142,15 +144,13 @@ set foldmethod=syntax
 set foldlevelstart=5
 set foldnestmax=4
 set colorcolumn=80
-set shiftwidth=4
-set expandtab
 let python_highlight_all = 1
 
 "
 " CUSTOM KEY BINDINGS
 "
 
-" Split navigations
+" Split navigation
 nnoremap <C-j> <C-w><C-j>
 nnoremap <C-k> <C-w><C-k>
 nnoremap <C-l> <C-w><C-l>
@@ -170,11 +170,12 @@ nnoremap <leader>s :setlocal spell! spelllang=en_us<CR>
 " YouCompleteMe mappings
 nnoremap <leader>d :YcmCompleter GoTo<CR>
 nnoremap <leader>h :YcmCompleter GetDoc<CR>
+nnoremap <leader>x :YcmCompleter FixIt<CR>:ccl<CR>
 
-" Search current search in all files with \f
-nnoremap <leader>f :AckFromSearch<CR>
+" Search current search in all files with \F
+nnoremap <leader>F :AckFromSearch<CR>
 
-" Git shortcuts
+" Git shortcuts (all of them start with \g)
 nnoremap <leader>gs :Gministatus<CR>
 nnoremap <leader>gc :Gcommit<CR>
 nnoremap <leader>gl :Gitv --all<CR>
@@ -186,14 +187,14 @@ inoremap ; <End>;
 inoremap ;; ;
 inoremap ;<Space> ;<Space>
 
-" Insert end at the line below (super-handy for MATLAB and similar)
+" Insert end at the line below (super-handy for MATLAB)
 nnoremap <leader>e oend<ESC>
 
-" Insert newline after cursor position and move to it
+" Insert newline after cursor position, move to it, and remain in normal mode.
 nnoremap <leader><return> o<ESC>
 
 "
-" CUSTOM ABBREVIATIONS
+" COMMON TYPOS
 "
 
 iab funciton function
@@ -206,3 +207,9 @@ iab arent aren't
 iab wont won't
 iab isnt isn't
 
+"
+" FOOTER
+"
+
+" FileType-specific settings override anything specified here.
+filetype plugin indent on
