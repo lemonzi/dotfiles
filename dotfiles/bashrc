@@ -70,5 +70,5 @@ else
     SYS_PREFIX=""
 fi
 try_sourcing $SYS_PREFIX/share/bash_completion/bash_completion # 2.0
-# try_sourcing $SYS_PREFIX/etc/bash_completion # 1.0
+try_sourcing $SYS_PREFIX/etc/bash_completion # 1.0
 

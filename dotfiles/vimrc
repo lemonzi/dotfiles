@@ -128,7 +128,9 @@ augroup END
 colorscheme jellybeans
 set cursorline
 set ignorecase
-set wildignorecase
+if exists("&wildignorecase")  " Just to be safe, as it's quite new...
+    set wildignorecase
+endif
 set hidden
 set number
 set list  " Display trailing whitespace
@@ -211,5 +213,5 @@ iab isnt isn't
 " FOOTER
 "
 
-" FileType-specific settings override anything specified here.
+" FileType-specific settings override anything specified in this file.
 filetype plugin indent on
