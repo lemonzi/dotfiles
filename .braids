@@ -1,0 +1,9 @@
+{
+  "vendor/powerline-fonts": {
+    "url": "https://github.com/powerline/fonts",
+    "remote": "master/braid/vendor/powerline-fonts",
+    "branch": "master",
+    "squashed": true,
+    "revision": "a44abd0e742ad6e7fd8d8bc4c3cad5155c9f3a92"
+  }
+}
