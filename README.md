@@ -12,8 +12,7 @@ to use symlinks or something like that.
 Usage:
 
 ```bash
-git clone https://github.com/lemonzi/dotfiles ~/.dotfiles
-cd ~./.dotfiles
+git clone https://github.com/lemonzi/dotfiles ~/dotfiles
+cd ~/dotfiles
 ./install.sh
 ```
-
