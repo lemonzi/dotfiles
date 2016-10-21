@@ -4,6 +4,7 @@
 brew 'ack'
 brew 'bash'
 brew 'bash-completion'
+brew 'blueutil'
 brew 'cmake'
 brew 'coreutils'
 brew 'exiftool'

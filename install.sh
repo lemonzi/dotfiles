@@ -45,6 +45,9 @@ fi
 brew tap homebrew/bundle
 brew bundle
 
+# Login shell
+chsh -s /usr/local/bin/bash $USER
+
 # Vim (including plug-ins)
 mkdir -p ~/.vim/bundle
 if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
