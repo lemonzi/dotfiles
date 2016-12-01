@@ -1,5 +1,4 @@
-# Brewfile for lemonzi's dotfiles (OSX version only)
-# For now, they are sorted by order
+# Brewfile for lemonzi's dotfiles (OSX version only).
 
 brew 'ack'
 brew 'bash'
@@ -42,13 +41,13 @@ tap 'caskroom/cask'
 cask 'audacity'
 cask 'basictex'
 cask 'bibdesk'
-cask 'caffeine'
-cask 'divvy'
+cask 'caffeine'  # Will be replaced by Hammerspoon
+cask 'divvy'     # Will be replace by Hammerspoon
 cask 'dropbox'
 cask 'google-chrome'
-cask 'google-nik-collection'
+cask 'google-nik-collection'  # Should be optional
+cask 'hammerspoon'
 cask 'insync'
-cask 'pd'
 cask 'skype'
 cask 'sonic-visualiser'
 cask 'the-unarchiver'
@@ -80,9 +79,10 @@ cask 'quicklook-json'
 # tap 'homebrew/fuse'
 # brew 'homebrew/fuse/simple-mtpfs'
 # brew 'homebrew/fuse/sshfs'
+# cask 'pd'
 # cask 'soundflower'
 # cask 'osxfuse'
-# cask 'kivy' (python app sdk, never used it)
+# cask 'kivy' (python app sdk)
 # cask 'cheatsheet'
 # cask 'firefox'
 # cask 'joinme'
@@ -95,4 +95,3 @@ cask 'quicklook-json'
 # tap 'argon/mas'
 # brew 'argon/mas/mas'
 # mas 'Keynote'
-
