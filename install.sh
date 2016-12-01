@@ -30,22 +30,22 @@ mkdir -p ~/.vim/undo
 vim +PluginInstall +qall
 # YCM
 pushd ~/.vim/bundle/YouCompleteMe
-# With JavaScript: add --tern-completer
-./install.py --clang-completer
+    # With JavaScript: add --tern-completer
+    ./install.py --clang-completer
 popd
 # Color-coded
 pushd ~/.vim/bundle/color_coded
-mkdir -p build && cd build
-cmake ..
-make && make install # Compiling with GCC is preferred, ironically
-# Cleanup afterward; frees several hundred megabytes
-make clean && make clean_clang
+    mkdir -p build && cd build
+    cmake ..
+    make && make install # Compiling with GCC is preferred, ironically
+    # Cleanup afterward; frees several hundred megabytes
+    make clean && make clean_clang
 popd
 
 # PIP
-pip install -r pip.txt
+pip install -r ./pip.txt
 
 # Gem
 while read gem; do
     sudo gem install $gem
-done <gem.txt
+done <./gem.txt
