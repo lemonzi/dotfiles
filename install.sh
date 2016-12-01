@@ -3,7 +3,7 @@
 set -eu
 
 # INSTALL SCRIPT
-# Requires: vim, clang, tern, pip (python), gem (ruby)
+# Requires: vim, clang, tern (optional), pip / python, gem / ruby
 
 # Dotfiles
 for f in ./dotfiles/*; do
@@ -20,7 +20,7 @@ brew bundle
 # Login shell
 chsh -s /usr/local/bin/bash $USER
 
-# Vim
+# Vim (including plug-ins)
 mkdir -p ~/.vim/bundle
 if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
     git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -30,16 +30,20 @@ mkdir -p ~/.vim/undo
 vim +PluginInstall +qall
 # YCM
 pushd ~/.vim/bundle/YouCompleteMe
-    # With JavaScript: add --tern-completer
+    # With JavaScript support: add --tern-completer
     ./install.py --clang-completer
 popd
 # Color-coded
 pushd ~/.vim/bundle/color_coded
     mkdir -p build && cd build
     cmake ..
-    make && make install # Compiling with GCC is preferred, ironically
+    make && make install
     # Cleanup afterward; frees several hundred megabytes
     make clean && make clean_clang
+popd
+# Powerline-fonts
+pushd ./vendor/powerline-fonts
+    ./install.sh
 popd
 
 # PIP
