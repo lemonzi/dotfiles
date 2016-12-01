@@ -6,6 +6,7 @@ brew 'bash-completion'
 brew 'blueutil'
 brew 'cmake'
 brew 'coreutils'
+brew 'ctags'  # Remove when universal-ctags is stable.
 brew 'exiftool'
 brew 'ffmpeg'
 brew 'gcc', args: ['without-multilib']
@@ -24,8 +25,9 @@ brew 'the_silver_searcher'
 brew 'tmux'
 brew 'vim', args: ['with-lua']
 
-tap 'universal-ctags/universal-ctags'
-brew 'universal-ctags', args: ['HEAD']
+# Commented out because there is no stable release yet.
+# tap 'universal-ctags/universal-ctags'
+# brew 'universal-ctags', args: ['HEAD']
 
 tap 'homebrew/dupes'
 brew 'homebrew/dupes/grep', args: ['with-default-names']
