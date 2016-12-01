@@ -1,4 +1,11 @@
 {
+  "dotfiles/hammerspoon/anycomplete": {
+    "url": "https://github.com/nathancahill/anycomplete",
+    "remote": "master/braid/dotfiles/hammerspoon/anycomplete",
+    "branch": "master",
+    "squashed": true,
+    "revision": "e16dc3554512ac5728147fba6dcc1f2bfe037048"
+  },
   "vendor/powerline-fonts": {
     "url": "https://github.com/powerline/fonts",
     "remote": "master/braid/vendor/powerline-fonts",
