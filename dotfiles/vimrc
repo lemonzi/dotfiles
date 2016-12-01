@@ -96,9 +96,11 @@ if executable('ag')
     let g:ackprg = 'ag --vimgrep'
 endif
 let g:SimpylFold_docstring_preview = 1
-let g:ycm_autoclose_preview_window_after_completion = 1
-let NERDTreeIgnore=['\.pyc$', '\~$']
+let NERDTreeIgnore=['\.pyc$', '\~$', '\.dSYM$']
 let g:Gitv_DoNotMapCtrlKey = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_global_ycm_extra_conf = "~/.ycm_extra_conf.py"
+let g:ycm_confirm_extra_conf = 0
 
 "
 " AUTOCOMMANDS
@@ -122,7 +124,7 @@ augroup pencil
 augroup END
 
 "
-" CUSTOM BUILTIN SETTINGS
+" DEFAULT BUILTIN SETTINGS (unless overwritten by an ftplugin)
 "
 
 colorscheme jellybeans
@@ -131,6 +133,9 @@ set ignorecase
 if exists("&wildignorecase")  " Just to be safe, as it's quite new...
     set wildignorecase
 endif
+set expandtab
+set sw=2
+set tw=79
 set hidden
 set number
 set list  " Display trailing whitespace
@@ -146,7 +151,7 @@ set foldmethod=syntax
 set foldlevelstart=5
 set foldnestmax=4
 set colorcolumn=80
-let python_highlight_all = 1
+let g:python_highlight_all = 1
 
 "
 " CUSTOM KEY BINDINGS
