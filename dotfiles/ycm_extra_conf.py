@@ -38,7 +38,7 @@ flags = [
 '-fsyntax-only',  # Don't actually compile the program.
 '-Wall',
 '-Wextra',
-'-Wdouble-promotion',  # Report computations with mixed floats and doubles.
+# '-Wdouble-promotion',  # Report computations with mixed floats and doubles.
 # '-Werror',  # Report warnings as errors.
 # '-DNDEBUG',  # If this is defined, asserts will be excluded.
 # THIS IS IMPORTANT! Without a "-std=<something>" flag, clang won't know which
@@ -50,8 +50,11 @@ flags = [
 # relevant for c++ headers.
 # For a C project, you would set this to 'c' instead of 'c++'.
 '-x', 'c++',
-# Look for headers in the current folder.
+# Look for headers in the current folder and two levels up.
+# TODO: Figure out the git root, or something like that.
 '-I', '.',
+'-I', '..',
+'-I', '../..',
 # Common system includes.
 '-isystem', '/System/Library/Frameworks/Python.framework/Headers',
 '-isystem', '/usr/local/include/eigen3',  # Eigen is header-only.
