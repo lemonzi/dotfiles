@@ -66,6 +66,10 @@ if $_COMPILE; then
     compile_youcompleteme
     compile_colorcoded
 fi
+# Powerline-fonts
+pushd ./vendor/powerline-fonts
+    ./install.sh
+popd
 
 # Tmux plug-ins
 if [ ! -d ~/.tmux/plugins/tpm ]; then
