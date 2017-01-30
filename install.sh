@@ -39,8 +39,9 @@ done
 source ~/.bashrc
 
 # Homebrew
-xcode-select –install
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+if [ ! -d /usr/local/Homebrew ]; then
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
 brew tap homebrew/bundle
 brew bundle
 
