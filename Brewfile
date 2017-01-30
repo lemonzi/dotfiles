@@ -23,7 +23,7 @@ brew 'sox'
 brew 'spark'
 brew 'the_silver_searcher'
 brew 'thefuck'
-brew 'vim'
+brew 'vim', args: ['with-lua']
 brew 'z'
 brew 'peco'
 brew 'jq'
