@@ -62,6 +62,11 @@ try_sourcing ~/.bash_aliases
 { # Color grep output
     alias grep="grep --color=auto"
 }
+{ # Color less output
+    export LESS=-R
+    # In case export doesn't work, try this:
+    # alias less="less -R"
+}
 
 # Enable programmable completion features
 if command_exists brew; then
