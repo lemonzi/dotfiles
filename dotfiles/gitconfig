@@ -4,7 +4,7 @@
 [alias]
     st = status -sb
     dif = diff --color-words
-    sdif = difftool --tool=icdiff
+    sdif = icdiff
     vdif = difftool --tool=vimdiff
     undo = reset --soft HEAD^
     amend = commit --amend -C HEAD
