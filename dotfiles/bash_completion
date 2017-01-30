@@ -4,4 +4,4 @@
 # custom completions for commands not installed.
 
 source ~/.bash_config/npm-completion.bash
-
+source ~/.bash_config/pip-completion.bash
