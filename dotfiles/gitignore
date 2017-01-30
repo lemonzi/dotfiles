@@ -1,7 +1,12 @@
 .DS_Store
-.*~
-.pyc
+*~
+*.pyc
+compile_commands.json
 .dropbox
 .icon
-.swp
-.dSYM
+*.swp
+*.dSYM
+*.so
+*.o
+*.d
+*.a
