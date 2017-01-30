@@ -8,6 +8,9 @@ laptop workstations.
 Not automated yet:
 
 - Code-signing the GDB certificate.
+- Setting bash as a login shell (edit /etc/shells).
+- Setting bash as the default shell for Terminal.app
+- Setting the default search engine for Chrome + logins
 
 Usage:
 
