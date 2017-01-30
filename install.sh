@@ -28,3 +28,8 @@ compile_colorcoded
 
 # PIP
 pip install -r ./pip.txt
+
+# Gem
+while read gem; do
+    sudo gem install $gem
+done <./gem.txt
