@@ -7,6 +7,10 @@ set -eu
 
 # Dotfiles
 for f in ./dotfiles/*; do
+    if [ -L ~/.$(basename "$f") ]; then
+        # Prevent name collisions, which result in unwanted nested folders
+        rm -ri ~/.$(basename "$f")
+    fi
     ln -fs $(pwd)/dotfiles/$(basename "$f") ~/.$(basename "$f")
 done
 
