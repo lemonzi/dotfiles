@@ -3,64 +3,56 @@
 
 brew 'ack'
 brew 'bash'
-brew 'bfg'
+brew 'bash-completion'
+brew 'cmake'
 brew 'coreutils'
-brew 'ctags'
 brew 'exiftool'
-brew 'openssl'
-brew 'python'
-brew 'git'
 brew 'ffmpeg'
 brew 'gcc', args: ['without-multilib']
-brew 'heroku-toolbelt'
+brew 'gdb'
+brew 'git'
 brew 'hr'
 brew 'hub'
 brew 'icdiff'
 brew 'imagemagick'
 brew 'libsndfile'
 brew 'node'
+brew 'pandoc'
+brew 'python'
 brew 'sox'
-brew 'spark'
 brew 'the_silver_searcher'
-brew 'thefuck'
+brew 'tmux'
 brew 'vim', args: ['with-lua']
-brew 'z'
-brew 'peco'
-brew 'jq'
-brew 'caskroom/cask/brew-cask'
-brew 'homebrew/dupes/gdb'
+
+tap 'universal-ctags/universal-ctags'
+brew 'universal-ctags', args: ['HEAD']
+
+tap 'homebrew/dupes'
 brew 'homebrew/dupes/grep', args: ['with-default-names']
 brew 'homebrew/dupes/rsync'
+
+tap 'homebrew/science'
 brew 'homebrew/science/perf'
-brew 'homebrew/x11/ddd'
 
 # Apps
+
+tap 'caskroom/cask'
 
 cask 'audacity'
 cask 'basictex'
 cask 'bibdesk'
 cask 'caffeine'
-cask 'cheatsheet'
 cask 'divvy'
 cask 'dropbox'
-cask 'firefox'
 cask 'google-chrome'
 cask 'google-nik-collection'
 cask 'insync'
-cask 'joinme'
-cask 'mendeley-desktop'
-cask 'musescore'
-cask 'namechanger'
-cask 'pandoc'
 cask 'pd'
-cask 'sequel-pro'
 cask 'skype'
 cask 'sonic-visualiser'
-cask 'soundflower'
 cask 'the-unarchiver'
 cask 'transmission'
 cask 'vlc'
-cask 'argon/mas/mas'
 
 # Quicklook plugins
 
@@ -73,8 +65,33 @@ cask 'quicklook-json'
 
 # Useful but not installed by default
 
-# cask 'kivy' (python app sdk, never used it)
+# brew 'bfg'  # Git repo cleaner
 # brew 'fpp'
-# cask 'osxfuse'
+# brew 'heroku-toolbelt'
+# brew 'peco'
+# brew 'openssl'
+# brew 'jq'
+# brew 'spark'  # Command-line bar graphs
+# brew 'thefuck'
+# brew 'z'
+# tap 'homebrew/x11'
+# brew 'homebrew/x11/ddd'
+# tap 'homebrew/fuse'
 # brew 'homebrew/fuse/simple-mtpfs'
 # brew 'homebrew/fuse/sshfs'
+# cask 'soundflower'
+# cask 'osxfuse'
+# cask 'kivy' (python app sdk, never used it)
+# cask 'cheatsheet'
+# cask 'firefox'
+# cask 'joinme'
+# cask 'mendeley-desktop'
+# cask 'musescore'
+# cask 'namechanger'
+# cask 'sequel-pro'
+
+# Mac App Store
+# tap 'argon/mas'
+# brew 'argon/mas/mas'
+# mas 'Keynote'
+
