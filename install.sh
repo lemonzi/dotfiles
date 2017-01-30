@@ -38,6 +38,12 @@ for f in ./dotfiles/*; do
 done
 source ~/.bashrc
 
+# Homebrew
+xcode-select –install
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew tap homebrew/bundle
+brew bundle
+
 # Vim (including plug-ins)
 mkdir -p ~/.vim/bundle
 if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
@@ -63,12 +69,6 @@ if [ ! -d ~/.tmux/plugins/tpm ]; then
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 ~/.tmux/plugins/tpm/bin/install_plugins
-
-# Homebrew
-xcode-select –install
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew tap homebrew/bundle
-brew bundle
 
 # PIP
 if command_exists pip; then
