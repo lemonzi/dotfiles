@@ -22,6 +22,9 @@ function command_exists() {
 # Defines some helper functions for easy system updates
 try_sourcing ~/.bash_config/update_util.sh
 
+# Parallel builds by default
+alias make='make -j'
+
 # If not running interactively, stop here
 # Anything available to non-interactive scripts must go before this line!
 [ ! -v PS1 ] && return
