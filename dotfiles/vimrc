@@ -23,6 +23,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'alexdavid/vim-min-git-status'
 Plugin 'gregsexton/gitv'
+Plugin 'chrisbra/vim-diff-enhanced'
 
 " Prose
 Plugin 'junegunn/goyo.vim'
