@@ -15,13 +15,13 @@
 "
 "}}}
 
-if exists("b:did_indent")
+if exists("b:did_cpp_indent")
     finish
 endif
-let b:did_indent = 1
+let b:did_cpp_indent = 1
 
-
-function! GoogleCppIndent()
+if !exists('*GoogleCppIndent')
+function GoogleCppIndent()
     let l:cline_num = line('.')
 
     let l:orig_indent = cindent(l:cline_num)
@@ -75,6 +75,7 @@ function! GoogleCppIndent()
 
     return l:orig_indent
 endfunction
+end
 
 setlocal shiftwidth=2
 setlocal tabstop=2
@@ -88,4 +89,3 @@ setlocal cinoptions=h1,l1,g1,t0,i4,+4,(0,w1,W4
 setlocal indentexpr=GoogleCppIndent()
 
 let b:undo_indent = "setl sw< ts< sts< et< tw< wrap< cin< cino< inde<"
-

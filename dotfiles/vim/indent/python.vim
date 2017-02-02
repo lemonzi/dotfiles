@@ -1,10 +1,12 @@
 " Indent Python in the Google way.
 
-setlocal indentexpr=GetGooglePythonIndent(v:lnum)
+if exists("b:did_python_indent")
+    finish
+endif
+let b:did_python_indent = 1
 
-let s:maxoff = 50 " maximum number of lines to look backwards.
-
-function GetGooglePythonIndent(lnum)
+if !exists('*GetGooglePythonIndent')
+function! GetGooglePythonIndent(lnum)
 
   " Indent inside parens.
   " Align with the open paren unless it is at the end of the line.
@@ -31,6 +33,17 @@ function GetGooglePythonIndent(lnum)
   return GetPythonIndent(a:lnum)
 
 endfunction
+end
+
+let b:maxoff = 50 " maximum number of lines to look backwards.
 
 let pyindent_nested_paren="&sw*2"
 let pyindent_open_paren="&sw*2"
+
+setlocal shiftwidth=2
+setlocal tabstop=2
+setlocal softtabstop=2
+setlocal expandtab
+setlocal textwidth=79
+
+setlocal indentexpr=GetGooglePythonIndent(v:lnum)
