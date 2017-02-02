@@ -26,6 +26,11 @@ vim +PluginInstall +qall
 compile_youcompleteme
 compile_colorcoded
 
+# Tmux plug-ins
+mkdir -p ~/.tmux/plugins
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+~/.tmux/plugins/tpm/bin/install_plugins
+
 # PIP
 if command_exists pip; then
     pip install -r ./pip.txt
