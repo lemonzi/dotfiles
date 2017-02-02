@@ -13,6 +13,7 @@ for f in ./dotfiles/*; do
     fi
     ln -fs $(pwd)/dotfiles/$(basename "$f") ~/.$(basename "$f")
 done
+source ~/.bashrc
 
 # Vim (including plug-ins)
 mkdir -p ~/.vim/bundle
@@ -22,19 +23,8 @@ fi
 mkdir -p ~/.vim/swap
 mkdir -p ~/.vim/undo
 vim +PluginInstall +qall
-# YCM
-pushd ~/.vim/bundle/YouCompleteMe
-    # With JavaScript support: add --tern-completer
-    ./install.py --clang-completer
-popd
-# Color-coded
-pushd ~/.vim/bundle/color_coded
-    mkdir -p build && cd build
-    cmake ..
-    make && make install
-    # Cleanup afterward; frees several hundred megabytes
-    make clean && make clean_clang
-popd
+compile_youcompleteme
+compile_colorcoded
 
 # PIP
 pip install -r ./pip.txt
