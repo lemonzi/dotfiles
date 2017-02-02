@@ -48,8 +48,8 @@ mkdir -p ~/.vim/undo
 vim +PluginInstall +qall
 { # Temporal fix because gitsessions.vim is broken
     pushd ~/.vim/bundle/gitsessions.vim
-    git checkout -B fix_syntax
-    git pull origin pull/12/head
+    git fetch origin pull/12/head
+    git checkout FETCH_HEAD
     popd
 }
 if $_COMPILE; then
