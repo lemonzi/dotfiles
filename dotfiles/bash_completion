@@ -5,3 +5,4 @@
 
 source ~/.bash_config/npm-completion.bash
 source ~/.bash_config/pip-completion.bash
+source ~/.bash_config/git-completion.bash
