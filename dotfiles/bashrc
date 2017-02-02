@@ -6,7 +6,18 @@ export LANG=en_US.UTF-8
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
+# Why is this not a default?
 shopt -s globstar
+
+# Function to conditionally source scripts if they exist
+function try_sourcing() {
+    if [ -f $1 ]; then source $1; else return 1; fi
+}
+
+# Function to check if a program is on our PATH
+function command_exists() {
+    test -x "$(command -v $1)"
+}
 
 # Defines some helper functions for easy system updates
 try_sourcing ~/.bash_config/update_util.sh
@@ -14,18 +25,6 @@ try_sourcing ~/.bash_config/update_util.sh
 # If not running interactively, stop here
 # Anything available to non-interactive scripts must go before this line!
 [ -z "$PS1" ] && return
-
-# Function to conditionally source scripts if they exist
-function try_sourcing()
-{
-    if [ -f $1 ]; then source $1; fi
-}
-
-# Function to check if a program is on our PATH
-function command_exists()
-{
-    test -x "$(command -v $1)"
-}
 
 # don't put duplicate lines or lines starting with space in the history.
 # also, limit the size

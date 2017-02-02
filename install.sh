@@ -27,9 +27,17 @@ compile_youcompleteme
 compile_colorcoded
 
 # PIP
-pip install -r ./pip.txt
+if command_exists pip; then
+    pip install -r ./pip.txt
+else
+    echo "Unable to install Python utils; pip not found." 1>&2
+fi
 
 # Gem
-while read gem; do
-    sudo gem install $gem
-done <./gem.txt
+if command_exists gem; then
+    while read gem_name; do
+        sudo gem install $gem_name
+    done <./gem.txt
+else
+    echo "Unable to install Ruby gems; gem not found." 1>&2
+fi
