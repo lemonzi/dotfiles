@@ -24,7 +24,7 @@ try_sourcing ~/.bash_config/update_util.sh
 
 # If not running interactively, stop here
 # Anything available to non-interactive scripts must go before this line!
-[ -z "$PS1" ] && return
+[ ! -v PS1 ] && return
 
 # don't put duplicate lines or lines starting with space in the history.
 # also, limit the size
@@ -46,7 +46,7 @@ shopt -s dirspell
 # allow cd'ing without typing cd
 shopt -s autocd
 
-if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ] || [ -n "$SSH_CONNECTION" ]; then
+if [ -v SSH_CLIENT ] || [ -v SSH_TTY ] || [ -v SSH_CONNECTION ]; then
     PS1='\[\033[90m\]\u@\h:\[\033[0m\]\W\[\033[90m\]$(__git_ps1 " (%s)")\[\033[0m\] > '
 else
     PS1='\[\033[90m\]local:\[\033[0m\]\W\[\033[90m\]$(__git_ps1 " (%s)")\[\033[0m\] > '
