@@ -72,6 +72,9 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'ervandew/supertab'
 Plugin 'jeaye/color_coded'
 
+" Session management
+Plugin 'https://github.com/wting/gitsessions.vim'
+
 call vundle#end()
 
 "

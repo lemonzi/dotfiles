@@ -23,6 +23,12 @@ fi
 mkdir -p ~/.vim/swap
 mkdir -p ~/.vim/undo
 vim +PluginInstall +qall
+{ # Temporal fix because gitsessions.vim is broken
+    pushd ~/.vim/bundle/gitsessions.vim
+    git fetch origin pull/12/head:fix_syntax
+    git checkout fix_syntax
+    popd
+}
 compile_youcompleteme
 compile_colorcoded
 
