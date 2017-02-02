@@ -6,7 +6,7 @@ endif
 let b:did_python_indent = 1
 
 if !exists('*GetGooglePythonIndent')
-function! GetGooglePythonIndent(lnum)
+function GetGooglePythonIndent(lnum)
 
   " Indent inside parens.
   " Align with the open paren unless it is at the end of the line.
@@ -34,6 +34,8 @@ function! GetGooglePythonIndent(lnum)
 
 endfunction
 end
+
+let b:maxoff = 50 " maximum number of lines to look backwards.
 
 let b:maxoff = 50 " maximum number of lines to look backwards.
 
