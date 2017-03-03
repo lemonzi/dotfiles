@@ -14,7 +14,7 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 
 # Kill a job with a given ID (by finding its PID)
-alias kg='kill $(jobs -p "$@")'
+alias kg='jobs -p "$@" && kill $(jobs -p "$@")'
 
 # Open a terminal session on matlab (requires it to be on the PATH)
 # The dotfiles will try to link it on OSX but it must be already installed by hand
