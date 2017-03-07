@@ -13,6 +13,7 @@ brew 'gcc', args: ['without-multilib']
 brew 'gdb'
 brew 'git'
 brew 'hr'
+brew 'htop'
 brew 'hub'
 brew 'icdiff'
 brew 'imagemagick'
